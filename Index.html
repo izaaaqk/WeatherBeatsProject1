@@ -31,8 +31,8 @@
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white">
-                <h1 class="mb-3">Weather Beats</h1>
-                <h4 class="mb-3">Location</h4>
+                <h1 class="title">Weather Beats</h1>
+                <h4 class="location">Location</h4>
                 <!-- Button trigger modal -->
                 <a type="button" class="btn btn-outline-light btn-lg btn-primary" href="#!" role="button"data-mdb-toggle="modal"
                    data-mdb-target="#exampleModal"
@@ -77,11 +77,22 @@
 <!--Playlist and music player boxes-->
 
     <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="playlist">Playlists will render here wit a ul</div>
+        <div class="col" id="currentWx">Current Weather
+            <div>Weather Icon</div>
+        </div>
+        <div class="col" id="playlist">Playlist<ul class="songWx">
+            <li> song </li>
+            <li> song </li>
+            <li> song </li>
+        </ul></div>
+        
+    </div>
+    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
         <div class="col" id="musicPlayer">Potential music player</div>
     </div>
 
 </div>
+
 
 </body>
 <!-- MDB -->
