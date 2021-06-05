@@ -24,10 +24,13 @@
 <div
         class="p-5 text-center bg-image"
         style="
+>
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
+    height: 400px;
+
       background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
       height: 400px;
-    "
->
+
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white">
@@ -35,13 +38,18 @@
                 <h4 class="location">Location</h4>
                 <!-- Button trigger modal -->
                 <a type="button" class="btn btn-outline-light btn-lg btn-primary" href="#!" role="button"data-mdb-toggle="modal"
+
+                data-mdb-target="#exampleModal"
+
                    data-mdb-target="#exampleModal"
+
                 >Set Current Location</a
                 >
             </div>
         </div>
     </div>
 </div>
+
 
 
 <!-- Modal -->
@@ -104,6 +112,55 @@
 
 </div>
 
+<!-- Modal -->
+<div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-mdb-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Playlist and music player boxes-->
+
+    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
+        <div class="col" id="currentWx">Current Weather
+            <div>Weather Icon</div>
+        </div>
+        <div class="col" id="playlist">Playlist<ul class="songWx">
+            <li> <iframe src=""></iframe>
+                <h3>Video Title</h3>
+                </li>
+            <li> song </li>
+            <li> song </li>
+        </ul></div>
+        
+    </div>
+    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
+        <div class="col" id="musicPlayer">Potential music player</div>
+    </div>
+
+</div>
 
 
 </body>
@@ -112,5 +169,10 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+
 <script src="assets/script.js"></script>
 </html>
