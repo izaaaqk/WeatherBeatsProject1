@@ -60,7 +60,8 @@ $locationBtn.addEventListener('click', function (){
     `;
             $div.innerHTML = contBox;
             $currentWx.appendChild($div);
-            wxOpts(response.weather.main);
+            console.log("weather: "+ data["weather"][0]["main"]);
+            wxOpts(data["weather"][0]["main"]);
         })
         .catch(() => {
             $msg.textContent = "try again";
@@ -72,34 +73,49 @@ $locationBtn.addEventListener('click', function (){
 
 //else if statements
 function wxOpts(currentWx) {
-    if (Rainy.includes(currentWx))
-        chooseVideo("Rainy");
-    else if(Sunny.includes(currentWx))
-        chooseVideo("Sunny");
-    else if(Snowy.includes(currentWx))
-        chooseVideo("Snowy");
-    else if(Cloudy.includes(currentWx))
-        chooseVideo("Cloudy");
-    else if(otherAtmosphere.includes(currentWx))
-        chooseVideo("Cloudy");
+    if (Rainy.includes(currentWx)){
+        console.log("Rainy wx: "+ currentWx);
+        chooseVideo("Rainy");}
+    else if(Sunny.includes(currentWx)){
+        console.log("Sunny wx: "+ currentWx);
+        chooseVideo("Sunny");}
+    else if(Snowy.includes(currentWx)){
+        console.log("Snowy wx: "+ currentWx);
+        chooseVideo("Snowy");}
+    else if(Cloudy.includes(currentWx)){
+        console.log("Couldy wx: "+ currentWx);
+        chooseVideo("Cloudy");}
+    else if(otherAtmosphere.includes(currentWx)){
+        console.log("otherCloudy wx: "+ currentWx);
+        chooseVideo("Cloudy");}
 }
 
 //
 function chooseVideo(weatherType){
     switch (weatherType) {
         case "Rainy":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
             getVideo();
             break;
         case "Sunny":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
             getVideo2();
             break;
         case "Snowy":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
             getVideo3();
             break;
         case "Cloudy":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
             getVideo4();
             break;
         default:
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
             getVideo2();
             break;
     }
@@ -131,7 +147,7 @@ function embedVideo(data) {
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
 }
-getVideo();
+//getVideo();
 
 //Sunny
 function getVideo2() {
@@ -159,7 +175,7 @@ function embedVideo(data) {
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
 }
-getVideo2();
+//getVideo2();
 
 //Snowy
 function getVideo3() {
@@ -187,7 +203,7 @@ function embedVideo(data) {
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
 }
-getVideo3();
+//getVideo3();
 
 //cloudy
 function getVideo4() {
@@ -215,6 +231,6 @@ function embedVideo(data) {
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
 }
-getVideo4();
+//getVideo4();
 
 
