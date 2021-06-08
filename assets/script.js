@@ -175,8 +175,7 @@ $locationBtn.addEventListener('click', function (){
                 weather[0]["description"]
             }"
         <figcaption>${weather[0]["description"]}</figcaption>
-         </figure>
-         
+        </figure>
     `;
             $div.innerHTML = contBox;
             $currentWx.appendChild($div);
