@@ -26,9 +26,6 @@
 <div
         class="p-5 text-center bg-image"
         style="
-
-    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
-    height: 400px;
       background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
       height: 400px;">
 
@@ -38,12 +35,8 @@
                 <h1 class="title">Weather Beats</h1>
                 <h4 class="location">Location</h4>
                 <!-- Button trigger modal -->
-                <a type="button" class="btn btn-outline-light btn-lg btn-primary" href="#!" role="button"data-mdb-toggle="modal"
-
+                <a type="button" class="btn btn-outline-light btn-lg btn-primary" role="button" data-mdb-toggle="modal"
                 data-mdb-target="#exampleModal"
-
-                   data-mdb-target="#exampleModal"
-
                 >Set Current Location</a
                 >
             </div>
@@ -71,7 +64,9 @@
 
                 ></button>
             </div>
-            <input class="modal-body" placeholder="set location">
+            <label>
+                <input class="modal-body" placeholder="set location">
+            </label>
             <sup class="msg"></sup>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
@@ -86,6 +81,10 @@
 <!--weather box-->
     <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
         <div class="col" id="currentWx">
+<<<<<<< HEAD
+=======
+            <div>Current Weather</div>
+>>>>>>> accfb18351869c555aa1fd438107143c62668f01
         </div>
 
         <!--Playlist and music player boxes-->
@@ -95,11 +94,15 @@
         </ul></div>
         
     </div>
-    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="musicPlayer">Potential music player</div>
+
+    <div class="col" style="height: 100px;">
+        <div class="pastWx" id="pastWx">Past Weather</div>
     </div>
 
-</div>
+    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
+        <div class="col" id="musicPlayer"></div>
+    </div>
+
 
 </body>
 <!-- MDB -->
