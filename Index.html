@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="./assets/style.css"/>
     <!-- Font Awesome -->
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -66,6 +68,7 @@
                         class="btn-close"
                         data-mdb-dismiss="modal"
                         aria-label="Close"
+
                 ></button>
             </div>
             <input class="modal-body" placeholder="set location">
@@ -74,18 +77,18 @@
                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
                     Close
                 </button>
-                <button type="submit" class="btn btn-primary" id="locationBtn">Save changes</button>
+                <button type="submit" class="btn btn-primary" id="locationBtn" >Save changes</button>
             </div>
         </div>
     </div>
 </div>
 
-<!--Playlist and music player boxes-->
-
+<!--weather box-->
     <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="currentWx">Current Weather
-            <div>Weather Icon</div>
+        <div class="col" id="currentWx">
         </div>
+
+        <!--Playlist and music player boxes-->
         <div class="col" id="playlist">Playlist<ul class="songWx">
             <li> <iframe src=""></iframe>
                 <h3>Rainy weather</h3> </li>

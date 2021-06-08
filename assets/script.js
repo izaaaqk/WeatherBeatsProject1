@@ -1,3 +1,5 @@
+//weather api
+
 const $locationBtn = document.querySelector(`#locationBtn`);
 const $input = document.querySelector(`input`);
 const $currentWx = document.querySelector('#currentWx')
@@ -60,8 +62,8 @@ $locationBtn.addEventListener('click', function (){
     $msg.textContent = "";
     $input.focus();
 });
-
-//Rainy
+// video api
+Rainy
 function getVideo() {
     $.ajax({
     type: 'GET',
