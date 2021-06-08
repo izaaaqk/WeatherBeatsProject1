@@ -3,6 +3,13 @@ const $input = document.querySelector(`input`);
 const $currentWx = document.querySelector('#currentWx')
 const $msg = document.querySelector(`.msg`)
 
+//Array of weather types
+let Rainy = ["Rain", "Drizzle", "Thunderstorm"];
+let Sunny = ["Clear"];
+let Snowy = ["Snow"];
+let Cloudy = ["Clouds"];
+let otherAtmosphere = ["Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Dust", "Ash", "Squall", "Tornado"];
+
 $locationBtn.addEventListener('click', function (){
     let userInput = $input.value;
     const listItems = $currentWx.querySelectorAll("#userInput");
@@ -26,7 +33,8 @@ $locationBtn.addEventListener('click', function (){
             return content === userInput.toLowerCase();
         });
     }
-    //api call
+
+//api call
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${"37fcd1e7adf83820e8d9db2feba781a9"}&units=metric`;
 
     fetch(url)
@@ -52,6 +60,7 @@ $locationBtn.addEventListener('click', function (){
     `;
             $div.innerHTML = contBox;
             $currentWx.appendChild($div);
+            wxOpts(response.weather.main);
         })
         .catch(() => {
             $msg.textContent = "try again";
@@ -61,13 +70,48 @@ $locationBtn.addEventListener('click', function (){
     $input.focus();
 });
 
+//else if statements
+function wxOpts(currentWx) {
+    if (Rainy.includes(currentWx))
+        chooseVideo("Rainy");
+    else if(Sunny.includes(currentWx))
+        chooseVideo("Sunny");
+    else if(Snowy.includes(currentWx))
+        chooseVideo("Snowy");
+    else if(Cloudy.includes(currentWx))
+        chooseVideo("Cloudy");
+    else if(otherAtmosphere.includes(currentWx))
+        chooseVideo("Cloudy");
+}
+
+//
+function chooseVideo(weatherType){
+    switch (weatherType) {
+        case "Rainy":
+            getVideo();
+            break;
+        case "Sunny":
+            getVideo2();
+            break;
+        case "Snowy":
+            getVideo3();
+            break;
+        case "Cloudy":
+            getVideo4();
+            break;
+        default:
+            getVideo2();
+            break;
+    }
+}
+
 //Rainy
 function getVideo() {
     $.ajax({
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "lofi hip hop radio - beats to relax/study to",
         part: 'snippet',
         maxResults: 1,
@@ -95,7 +139,7 @@ function getVideo2() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "Indie/Indie-Folk Compilation - Winter 2020/2021 ❄️ (1½-Hour Playlist)",
         part: 'snippet',
         maxResults: 1,
@@ -123,7 +167,7 @@ function getVideo3() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "Classic Rock 80s and 90s | Best Rock Songs Of The 80s and 90s",
         part: 'snippet',
         maxResults: 1,
@@ -151,7 +195,7 @@ function getVideo4() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "Lindsey Stirling Studying Playlist",
         part: 'snippet',
         maxResults: 1,
@@ -174,16 +218,3 @@ function embedVideo(data) {
 getVideo4();
 
 
-
-switch (new WeatherType. getVideo()) {
-    case Rainy:
-    getVideo()
-    break;
-    case Sunny:
-    getVideo2()
-    break;
-    case Snowy:
-    getVideo3()
-    case Cloudy:
-    getVideo4()
-}
