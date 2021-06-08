@@ -1,9 +1,14 @@
-<<<<<<< Updated upstream
-=======
 const $locationBtn = document.querySelector(`#locationBtn`);
 const $input = document.querySelector(`input`);
 const $currentWx = document.querySelector('#currentWx')
 const $msg = document.querySelector(`.msg`)
+
+//Array of weather types
+let Rainy = ["Rain", "Drizzle", "Thunderstorm"];
+let Sunny = ["Clear"];
+let Snowy = ["Snow"];
+let Cloudy = ["Clouds"];
+let otherAtmosphere = ["Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Dust", "Ash", "Squall", "Tornado"];
 
 $locationBtn.addEventListener('click', function (){
     let userInput = $input.value;
@@ -28,7 +33,8 @@ $locationBtn.addEventListener('click', function (){
             return content === userInput.toLowerCase();
         });
     }
-    //api call
+
+//api call
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${"37fcd1e7adf83820e8d9db2feba781a9"}&units=metric`;
 
     fetch(url)
@@ -53,6 +59,7 @@ $locationBtn.addEventListener('click', function (){
     `;
             $div.innerHTML = contBox;
             $currentWx.appendChild($div);
+            wxOpts(response.weather.main);
         })
         .catch(() => {
             $msg.textContent = "try again";
@@ -61,7 +68,41 @@ $locationBtn.addEventListener('click', function (){
     $msg.textContent = "";
     $input.focus();
 });
->>>>>>> Stashed changes
+
+//else if statements
+function wxOpts(currentWx) {
+    if (Rainy.includes(currentWx))
+        chooseVideo("Rainy");
+    else if(Sunny.includes(currentWx))
+        chooseVideo("Sunny");
+    else if(Snowy.includes(currentWx))
+        chooseVideo("Snowy");
+    else if(Cloudy.includes(currentWx))
+        chooseVideo("Cloudy");
+    else if(otherAtmosphere.includes(currentWx))
+        chooseVideo("Cloudy");
+}
+
+//
+function chooseVideo(weatherType){
+    switch (weatherType) {
+        case "Rainy":
+            getVideo();
+            break;
+        case "Sunny":
+            getVideo2();
+            break;
+        case "Snowy":
+            getVideo3();
+            break;
+        case "Cloudy":
+            getVideo4();
+            break;
+        default:
+            getVideo2();
+            break;
+    }
+}
 
 //Rainy
 function getVideo() {
@@ -69,13 +110,8 @@ function getVideo() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-<<<<<<< Updated upstream
-        key: 'AIzaSyDSHivaODuCFjaTkkOycOiZrgAlMhkM654',
-        q: "watch?v=5qap5aO4i9A",
-=======
         key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "lofi hip hop radio - beats to relax/study to",
->>>>>>> Stashed changes
         part: 'snippet',
         maxResults: 1,
         type: 'video',
@@ -102,13 +138,8 @@ function getVideo2() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-<<<<<<< Updated upstream
-        key: 'AIzaSyDSHivaODuCFjaTkkOycOiZrgAlMhkM654',
-        q: "watch?v=w6MiJUTZ6n8&t=15s",
-=======
         key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "Indie/Indie-Folk Compilation - Winter 2020/2021 ❄️ (1½-Hour Playlist)",
->>>>>>> Stashed changes
         part: 'snippet',
         maxResults: 1,
         type: 'video',
@@ -135,13 +166,8 @@ function getVideo3() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-<<<<<<< Updated upstream
-        key: 'AIzaSyDSHivaODuCFjaTkkOycOiZrgAlMhkM654',
-        q: "watch?v=6GRdLGKYKkE&ab_channel=alexrainbirdMusic",
-=======
         key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "Classic Rock 80s and 90s | Best Rock Songs Of The 80s and 90s",
->>>>>>> Stashed changes
         part: 'snippet',
         maxResults: 1,
         type: 'video',
@@ -162,19 +188,14 @@ function embedVideo(data) {
 }
 getVideo3();
 
-//Snowy
+//cloudy
 function getVideo4() {
     $.ajax({
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-<<<<<<< Updated upstream
-        key: 'AIzaSyDSHivaODuCFjaTkkOycOiZrgAlMhkM654',
-        q: "watch?v=MCDRoNgVWmM&ab_channel=musicillusion02musicillusion02",
-=======
         key: 'AIzaSyDOJNWplZj68muGgtCBWhyCMGL9k2jth7Y',
         q: "Lindsey Stirling Studying Playlist",
->>>>>>> Stashed changes
         part: 'snippet',
         maxResults: 1,
         type: 'video',
@@ -196,97 +217,3 @@ function embedVideo(data) {
 getVideo4();
 
 
-
-switch(WeatherType) {
-    case x:
-    getVideo()
-    break;
-    case y:
-    getVideo2()
-    break;
-    default:
-    case z:
-    getVideo3()
-    case w:
-    getVideo4()
-}
-<<<<<<< Updated upstream
-const $locationBtn = document.querySelector(`#locationBtn`);
-const $input = document.querySelector(`input`);
-const $currentWx = document.querySelector('#currentWx')
-const $msg = document.querySelector(`.msg`)
-
-$locationBtn.addEventListener('click', function (){
-    let userInput = $input.value;
-    const listItems = $currentWx.querySelectorAll("#userInput");
-    const listItemsArray = Array.from(listItems);
-//added some conditions for my input to be precise
-    if (listItemsArray.length > 0) {
-        listItemsArray.filter(el => {
-            let content = "";
-            if (userInput.includes(",")) {
-                if (userInput.split(",")[1].length > 2) {
-                    userInput = userInput.split(",")[0];
-                    content = el
-                        .querySelector(".city-name span")
-                        .textContent.toLowerCase();
-                } else {
-                    content = el.querySelector(".city-name").dataset.name.toLowerCase();
-                }
-            } else {
-                content = el.querySelector(".city-name span").textContent.toLowerCase();
-            }
-            return content === userInput.toLowerCase();
-        });
-    }
-    //api call
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${"37fcd1e7adf83820e8d9db2feba781a9"}&units=metric`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const { main, name, weather, wind } = data;
-            const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
-                weather[0]["icon"]
-            }.svg`;
-//add the elements that i requested on my pli call to my html
-            const $div = document.createElement("div");
-            // $div.classList.add("city");
-            const contBox = `<h2 class="city-name" data-name="${name}">
-        <span>${name} ${Math.round(main.temp)}<sup>°C</sup>  </span>
-        </h2>
-        <figure>
-            <img class="city-icon" src="${icon}" alt="${
-                weather[0]["description"]
-            }"
-        <figcaption>${weather[0]["description"]}</figcaption>
-        </figure>
-    `;
-            $div.innerHTML = contBox;
-            $currentWx.appendChild($div);
-        })
-        .catch(() => {
-            $msg.textContent = "try again";
-        });
-
-    $msg.textContent = "";
-    $input.focus();
-});
-
-=======
-
-let Rainy = ["Rain", "Drizzle", "Thunderstorm"];
-let Sunny = ["Clear"];
-let Snowy = ["Snow"];
-let Cloudy = ["Clouds"];
-let otherAtmosphere = ["Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Dust", "Ash", "Squall", "Tornado"];
-
-if (Rainy.includes(currentWx))
-    chooseVideo("Rainy")
-else if(Sunny.includes(currentWx))
-    chooseVideo("Sunny")
-else if(Snowy.includes(currentWx))
-    chooseVideo("Snowy")
-else if(Cloudy.includes(currentWx))
-    chooseVideo("Cloudy");
->>>>>>> Stashed changes
