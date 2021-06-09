@@ -1,6 +1,14 @@
 .songWx{
-    text-align: left;
 }
-.col{
-    position: absolute;
+
+div#pastWx.passWx{
+    display: flex;
+    margin-right: 875px;
+    justify-content: space-evenly;
+    padding:5%;
+    padding-bottom: 20%;
+}
+
+figure{
+    padding: 5%;
 }

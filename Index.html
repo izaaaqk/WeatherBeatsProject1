@@ -17,6 +17,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
             rel="stylesheet"
     />
+    <link href="assets/style.css" rel="stylesheet">
     <title>Weather Beats</title>
 </head>
 <body>
@@ -24,7 +25,6 @@
 <div
         class="p-5 text-center bg-image"
         style="
-
     background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
     height: 400px;
       background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
@@ -82,18 +82,23 @@
 
 <!--Playlist and music player boxes-->
 
-    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="currentWx">Current Weather
-            <div>Weather Icon</div>
+    <div>Current Weather</div>
+    <div class="d-flex align-items-start bg-light mb-6" style="height: 200px;">
+        <div class="col" id="currentWx">
         </div>
         <div class="col" id="playlist">Playlist<ul class="songWx">
             <li> <iframe src=""></iframe>
-                <h3>Rainy weather</h3> </li>
+                <h3 id="currWx">Pick a city to get the weather.</h3> </li>
         </ul></div>
         
     </div>
+
+    <div class="col" style="height: 100px;">
+        <div class="pastWx" id="pastWx">Past Weather</div>
+    </div>
+
     <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="musicPlayer">Potential music player</div>
+        <div class="col" id="musicPlayer"></div>
     </div>
 
 </div>

@@ -3,6 +3,13 @@ const $input = document.querySelector(`input`);
 const $currentWx = document.querySelector('#currentWx')
 const $msg = document.querySelector(`.msg`)
 
+//Array of weather types
+let Rainy = ["Rain", "Drizzle", "Thunderstorm"];
+let Sunny = ["Clear"];
+let Snowy = ["Snow"];
+let Cloudy = ["Clouds"];
+let otherAtmosphere = ["Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Dust", "Ash", "Squall", "Tornado"];
+
 $locationBtn.addEventListener('click', function (){
     let userInput = $input.value;
     const listItems = $currentWx.querySelectorAll("#userInput");
@@ -26,7 +33,8 @@ $locationBtn.addEventListener('click', function (){
             return content === userInput.toLowerCase();
         });
     }
-    //api call
+
+//api call
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${"37fcd1e7adf83820e8d9db2feba781a9"}&units=metric`;
 
     fetch(url)
@@ -38,6 +46,7 @@ $locationBtn.addEventListener('click', function (){
             }.svg`;
 //add the elements that i requested on my pli call to my html
             const $div = document.createElement("div");
+            $div.setAttribute("id", "weather-icon")
             // $div.classList.add("city");
             const contBox = `<h2 class="city-name" data-name="${name}">
         <span>${name} ${Math.round(main.temp)}<sup>°C</sup>  </span>
@@ -51,7 +60,9 @@ $locationBtn.addEventListener('click', function (){
          
     `;
             $div.innerHTML = contBox;
-            $currentWx.appendChild($div);
+            $currentWx.prepend($div);
+            console.log("weather: "+ data["weather"][0]["main"]);
+            wxOpts(data["weather"][0]["main"]);
         })
         .catch(() => {
             $msg.textContent = "try again";
@@ -61,13 +72,63 @@ $locationBtn.addEventListener('click', function (){
     $input.focus();
 });
 
+//else if statements
+function wxOpts(currentWx) {
+    if (Rainy.includes(currentWx)){
+        console.log("Rainy wx: "+ currentWx);
+        chooseVideo("Rainy");}
+    else if(Sunny.includes(currentWx)){
+        console.log("Sunny wx: "+ currentWx);
+        chooseVideo("Sunny");}
+    else if(Snowy.includes(currentWx)){
+        console.log("Snowy wx: "+ currentWx);
+        chooseVideo("Snowy");}
+    else if(Cloudy.includes(currentWx)){
+        console.log("Couldy wx: "+ currentWx);
+        chooseVideo("Cloudy");}
+    else if(otherAtmosphere.includes(currentWx)){
+        console.log("otherCloudy wx: "+ currentWx);
+        chooseVideo("Cloudy");}
+}
+
+//
+function chooseVideo(weatherType){
+    switch (weatherType) {
+        case "Rainy":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
+            getVideo();
+            break;
+        case "Sunny":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
+            getVideo3();
+            break;
+        case "Snowy":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
+            getVideo2();
+            break;
+        case "Cloudy":
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
+            getVideo4();
+            break;
+        default:
+            console.log("final wx: " + weatherType);
+            document.getElementById('currWx').innerHTML=weatherType;
+            getVideo2();
+            break;
+    }
+}
+
 //Rainy
 function getVideo() {
     $.ajax({
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "lofi hip hop radio - beats to relax/study to",
         part: 'snippet',
         maxResults: 1,
@@ -82,12 +143,12 @@ function getVideo() {
     }
     });
 }
-function embedVideo(data) {
+/* function embedVideo(data) {
     $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
-}
-getVideo();
+} */
+//getVideo();
 
 //Sunny
 function getVideo2() {
@@ -95,7 +156,7 @@ function getVideo2() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "Indie/Indie-Folk Compilation - Winter 2020/2021 ❄️ (1½-Hour Playlist)",
         part: 'snippet',
         maxResults: 1,
@@ -110,12 +171,12 @@ function getVideo2() {
     }
     });
 }
-function embedVideo(data) {
+/* function embedVideo(data) {
     $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
-}
-getVideo2();
+} */
+//getVideo2();
 
 //Snowy
 function getVideo3() {
@@ -123,7 +184,7 @@ function getVideo3() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "Classic Rock 80s and 90s | Best Rock Songs Of The 80s and 90s",
         part: 'snippet',
         maxResults: 1,
@@ -138,12 +199,12 @@ function getVideo3() {
     }
     });
 }
-function embedVideo(data) {
+/* function embedVideo(data) {
     $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
-}
-getVideo3();
+} */
+//getVideo3();
 
 //cloudy
 function getVideo4() {
@@ -151,7 +212,7 @@ function getVideo4() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyBPGy8wgBuX4DJVZOxFVLLtdo81BvNCPwE',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "Lindsey Stirling Studying Playlist",
         part: 'snippet',
         maxResults: 1,
@@ -171,19 +232,4 @@ function embedVideo(data) {
     $('h3').text(data.items[0].snippet.title)
     $('.description').text(data.items[0].snippet.description)
 }
-getVideo4();
-
-
-
-switch (new WeatherType. getVideo()) {
-    case Rainy:
-    getVideo()
-    break;
-    case Sunny:
-    getVideo2()
-    break;
-    case Snowy:
-    getVideo3()
-    case Cloudy:
-    getVideo4()
-}
+//getVideo4();
