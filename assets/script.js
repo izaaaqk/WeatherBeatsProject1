@@ -46,6 +46,7 @@ $locationBtn.addEventListener('click', function (){
             }.svg`;
 //add the elements that i requested on my pli call to my html
             const $div = document.createElement("div");
+            $div.setAttribute("id", "weather-icon")
             // $div.classList.add("city");
             const contBox = `<h2 class="city-name" data-name="${name}">
         <span>${name} ${Math.round(main.temp)}<sup>°C</sup>  </span>
@@ -127,7 +128,7 @@ function getVideo() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyCBP_tD5uQqlBP9tZM7ZgPz3eafToPuYws',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "lofi hip hop radio - beats to relax/study to",
         part: 'snippet',
         maxResults: 1,
@@ -155,7 +156,7 @@ function getVideo2() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyCBP_tD5uQqlBP9tZM7ZgPz3eafToPuYws',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "Indie/Indie-Folk Compilation - Winter 2020/2021 ❄️ (1½-Hour Playlist)",
         part: 'snippet',
         maxResults: 1,
@@ -183,7 +184,7 @@ function getVideo3() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyCBP_tD5uQqlBP9tZM7ZgPz3eafToPuYws',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "Classic Rock 80s and 90s | Best Rock Songs Of The 80s and 90s",
         part: 'snippet',
         maxResults: 1,
@@ -211,7 +212,7 @@ function getVideo4() {
     type: 'GET',
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
-        key: 'AIzaSyCBP_tD5uQqlBP9tZM7ZgPz3eafToPuYws',
+        key: 'AIzaSyDmLq7-8HiUSiCwoSB3eAoBK5M4hAs-VJM',
         q: "Lindsey Stirling Studying Playlist",
         part: 'snippet',
         maxResults: 1,
@@ -232,5 +233,6 @@ function embedVideo(data) {
     $('.description').text(data.items[0].snippet.description)
 }
 //getVideo4();
+
 
 
