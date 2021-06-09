@@ -17,6 +17,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
             rel="stylesheet"
     />
+    <link href="assets/style.css" rel="stylesheet">
     <title>Weather Beats</title>
 </head>
 <body>
@@ -24,14 +25,10 @@
 <div
         class="p-5 text-center bg-image"
         style="
->
     background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
     height: 400px;
-
-    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
-    height: 400px;
-    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
-    height: 400px;">
+      background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
+      height: 400px;">
 
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
         <div class="d-flex justify-content-center align-items-center h-100">
@@ -43,7 +40,7 @@
 
                 data-mdb-target="#exampleModal"
 
-                data-mdb-target="#exampleModal"
+                   data-mdb-target="#exampleModal"
 
                 >Set Current Location</a
                 >
@@ -51,8 +48,6 @@
         </div>
     </div>
 </div>
-
-
 
 <!-- Modal -->
 <div
@@ -87,83 +82,26 @@
 
 <!--Playlist and music player boxes-->
 
-    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="currentWx">Current Weather
-            <div>Weather Icon</div>
-        </div>
-        <div class="col" id="playlist">Playlist<ul class="songWx">
-            <li> song </li>
-            <li> song </li>
-            <li> song </li>
-        </ul></div>
-        
-    </div>
-    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="musicPlayer">Potential music player</div>
-    </div>
-    <div class="col" id="playlist">Playlist<ul class="songWx">
-        <li> song </li>
-        <li> song </li>
-        <li> song </li>
-    </ul></div>
-
-</div>
-<div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-    <div class="col" id="musicPlayer">Potential music player</div>
-</div>
-
-</div>
-
-<!-- Modal -->
-<div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"></div>
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button
-                        type="button"
-                        class="btn-close"
-                        data-mdb-dismiss="modal"
-                        aria-label="Close"
-                ></button>
-            </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Playlist and music player boxes-->
-
-    <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="currentWx">Current Weather
-            <div>Weather Icon</div>
+    <div class="d-flex align-items-start bg-light mb-6" style="height: 200px;">
+        <div class="col" id="currentWx">
+            <div>Current Weather</div>
         </div>
         <div class="col" id="playlist">Playlist<ul class="songWx">
             <li> <iframe src=""></iframe>
-                <h3>Video Title</h3>
-                </li>
-            <li> song </li>
-            <li> song </li>
+                <h3 id="currWx">Pick a city to get the weather.</h3> </li>
         </ul></div>
         
     </div>
+
+    <div class="col" style="height: 100px;">
+        <div class="pastWx" id="pastWx">Past Weather</div>
+    </div>
+
     <div class="d-flex align-items-start bg-light mb-6" style="height: 100px;">
-        <div class="col" id="musicPlayer">Potential music player</div>
+        <div class="col" id="musicPlayer"></div>
     </div>
 
 </div>
-
 
 </body>
 <!-- MDB -->
